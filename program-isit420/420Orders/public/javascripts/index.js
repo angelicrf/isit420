@@ -15,11 +15,11 @@ let myRand_2 = infos.salesPersonID[Math.floor(Math.random() * infos.salesPersonI
 let myRand_3 = infos.itemNumber[Math.floor(Math.random() * infos.itemNumber.length)];
 let myRand_4 = infos.pricePaid[Math.floor(Math.random() * infos.pricePaid.length)];
 let newObject = {
-       storeNumber:  myRand,
-       salesPersonID: myRand_2,
-       itemNumber: myRand_3,
-       timePurch: Date(Date.now).toString(),
-       pricePaid: myRand_4
+       "storeNumber":  myRand,
+       "salesPersonID": myRand_2,
+       "itemNumber": myRand_3,
+       "timePurch": Date(Date.now).toString(),
+       "pricePaid": myRand_4
  }
 document.addEventListener("DOMContentLoaded", function(event){
 
@@ -29,16 +29,19 @@ document.addEventListener("DOMContentLoaded", function(event){
     })
 })
 
-document.getElementById('button2').addEventListener("click", async function(){
-  
+document.getElementById('button2').addEventListener("click", function(res, req){
+        showData();
+})                              
+const showData = res => {
     $.ajax({
-        url: '/newOrder/',
+        url: '/newOrder',
         method: 'POST',
         dataType: 'json',
         contentType: 'application/json',
         data: JSON.stringify(newObject),
-        success: function (result) {
-           
-        }
+        success: console.log(JSON.stringify(newObject))
 
-    })  })      
+    })
+
+//return res.json(newObject);
+}
