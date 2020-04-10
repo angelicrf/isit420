@@ -35,8 +35,53 @@ function getData (){
         pricePaid: [5,6,7,8,9,10,11,12,13,14,15]
      
     }
+    let myRand_2;
+    function getRand(min, max){
+    var randInt = (Math.floor(Math.random() * (max - min + 1)) + min);
+    }
     let myRand = infos.storeNumber[Math.floor(Math.random() * infos.storeNumber.length)];
-    let myRand_2 = infos.salesPersonID[Math.floor(Math.random() * infos.salesPersonID.length)];
+    if(myRand === 98453){
+        myRand_2 = getRand(1,4);
+        if(infos.storeNumber.indexOf(myRand_2) !== -1) {
+            console.log('match');
+            infos.salesPersonID = myRand_2;
+          }             
+    }
+    if(myRand === 98007){
+        myRand_2 = getRand(5,8);
+        if(infos.storeNumber.indexOf(myRand_2) !== -1) {
+            console.log('match');
+            infos.salesPersonID = myRand_2;
+          }
+    }
+    if(myRand === 98077){
+        myRand_2 = getRand(9,12);
+        if(infos.storeNumber.indexOf(myRand_2) !== -1) {
+            console.log('match');
+            infos.salesPersonID = myRand_2;
+          } 
+    }        
+    if(myRand === 98055){
+        myRand_2 = getRand(13,16);
+        if(infos.storeNumber.indexOf(myRand_2) !== -1) {
+            console.log('match');
+            infos.salesPersonID = myRand_2;
+          } 
+        }
+        if(myRand === 98011){
+            myRand_2 = getRand(17,20);
+            if(infos.storeNumber.indexOf(myRand_2) !== -1) {
+                console.log('match');
+                infos.salesPersonID = myRand_2;
+              }                    
+        }    
+        if(myRand === 98046){
+            myRand_2 = getRand(21,24);
+            if(infos.storeNumber.indexOf(myRand_2) !== -1) {
+                console.log('match');
+                infos.salesPersonID = myRand_2;
+              } 
+        }
     let myRand_3 = infos.itemNumber[Math.floor(Math.random() * infos.itemNumber.length)];
     let myRand_4 = infos.pricePaid[Math.floor(Math.random() * infos.pricePaid.length)];
     newObject = {
