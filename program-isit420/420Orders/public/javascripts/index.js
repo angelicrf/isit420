@@ -7,22 +7,40 @@ document.addEventListener("DOMContentLoaded", function(event){
     })
 })
 
-document.getElementById('button2').addEventListener("click", function(res, req){
+document.getElementById('button2').addEventListener("click", function(){
         showData();
 })                              
-const showData = res => {
-    $.ajax({
+function showData () {
+    $(document).ready(function () {
+
+     return $.ajax({
         url: '/newOrder',
         method: 'POST',
         dataType: 'json',
         contentType: 'application/json',
         data: JSON.stringify(newObject),
-        success: console.log(JSON.stringify(newObject))
-
+        success: console.log(JSON.stringify(newObject)),
+        complete: $('p').append(JSON.stringify(newObject))                        
     })
-
-//return res.json(newObject);
-}
+                               
+});
+//    (async () => {
+//         // console.log('here');
+//         const response = await fetch('/newObject',{
+//             method: 'GET',
+//             headers: {
+//                 "Accept": 'application/json , text/plain, */*',
+//                 "Content-type": 'application/json'
+//             }
+//         });
+//         console.log('got response');
+//         try {
+//           await response.json();
+//         } catch(e) {
+//           console.log('error:', e.message);
+//         }
+//       })();
+            }
 function getData (){
     let infos = {
         storeNumber:  [98053 , 98007, 98077, 98055, 98011, 98046],
@@ -37,10 +55,11 @@ function getData (){
     }
     let myRand_2;
     function getRand(min, max){
-    var randInt = (Math.floor(Math.random() * (max - min + 1)) + min);
+       var randInt = (Math.floor(Math.random() * (max - min + 1)) + min);
+         return randInt;
     }
     let myRand = infos.storeNumber[Math.floor(Math.random() * infos.storeNumber.length)];
-    if(myRand === 98453){
+    if(myRand === 98053){
         myRand_2 = getRand(1,4);
         if(infos.storeNumber.indexOf(myRand_2) !== -1) {
             console.log('match');
@@ -67,20 +86,20 @@ function getData (){
             console.log('match');
             infos.salesPersonID = myRand_2;
           } 
-        }
-        if(myRand === 98011){
-            myRand_2 = getRand(17,20);
-            if(infos.storeNumber.indexOf(myRand_2) !== -1) {
-                console.log('match');
-                infos.salesPersonID = myRand_2;
-              }                    
-        }    
-        if(myRand === 98046){
-            myRand_2 = getRand(21,24);
-            if(infos.storeNumber.indexOf(myRand_2) !== -1) {
-                console.log('match');
-                infos.salesPersonID = myRand_2;
-              } 
+    }
+    if(myRand === 98011){
+        myRand_2 = getRand(17,20);
+        if(infos.storeNumber.indexOf(myRand_2) !== -1) {
+            console.log('match');
+            infos.salesPersonID = myRand_2;
+            }                    
+    }    
+    if(myRand === 98046){
+        myRand_2 = getRand(21,24);
+        if(infos.storeNumber.indexOf(myRand_2) !== -1) {
+            console.log('match');
+            infos.salesPersonID = myRand_2;
+            } 
         }
     let myRand_3 = infos.itemNumber[Math.floor(Math.random() * infos.itemNumber.length)];
     let myRand_4 = infos.pricePaid[Math.floor(Math.random() * infos.pricePaid.length)];
