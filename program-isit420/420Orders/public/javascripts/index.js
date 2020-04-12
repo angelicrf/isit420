@@ -34,8 +34,7 @@ const showData = () => {
 //           console.log('error:', e.message);
 //         }
 //       })();
-
-function uploadData (response) {
+const uploadData = () => {
     $.ajax({
        url: '/newOrder',
        method: 'POST',
@@ -49,8 +48,7 @@ function uploadData (response) {
        contentType: 'application/json',
        data: JSON.stringify(newObject),
        success: alert("get data: " + JSON.stringify(newObject))
-})
-
+   })
 }                       
 const getData = () => {
     let infos = {
@@ -65,10 +63,6 @@ const getData = () => {
      
     }
     let myRand_2;
-    function getRand(min, max){
-       var randInt = (Math.floor(Math.random() * (max - min + 1)) + min);
-         return randInt;
-    }
     let myRand = infos.storeNumber[Math.floor(Math.random() * infos.storeNumber.length)];
     if(myRand === 98053){
         myRand_2 = getRand(1,4);
@@ -124,4 +118,8 @@ const getData = () => {
      document.getElementById('show').innerHTML += myRand + ' ' + myRand_2 + ' ' + myRand_3 
              + ' ' + myRand_4 + ' ' + infos.timePurch.toString();
     }
+const getRand = (min, max) => {
+        var randInt = (Math.floor(Math.random() * (max - min + 1)) + min);
+          return randInt;
+     }    
 mainData();
