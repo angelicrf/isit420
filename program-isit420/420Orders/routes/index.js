@@ -1,29 +1,31 @@
 var express = require('express');
-var router = express.Router();
-var fetch = require('node-fetch');
-var bodyParser = require('body-parser');
-
+var router = express.Router(); 
 var app = express();
-
+var bodyParser = require('body-parser');
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
-//app.use(multer());
-                            
+app.use(bodyParser.urlencoded({extended: true}));
+
+
 /* GET home page. */
 router.get('/', function(req, res) {
-//  console.log(JSON.stringify(req.body));
+ console.log(req.body);
   res.sendFile('index.html');
 });
 router.post('/newOrder', function(req, res){
-  console.log(req.body);
-})
+   newObject = {
+      storeNumber:  req.body.storeNumber,
+      salesPersonID: req.body.salesPersonID,
+      itemNumber: req.body.itemNumber,
+      timePurch: Date(Date.now).toString(),
+      pricePaid: req.body.pricePaid
+   }
+   console.log(newObject);
+   res.json(newObject);
+})                             
 router.get("/newOrder", (req, res) => {
-//let newOrderData = JSON.stringify(req.body.storeNumber);
-const Student = req.body;
-console.log(Student);
-res.json();
+
+//   console.log(req.body);
+   res.json(newObject)
 })
 
 module.exports = router;
