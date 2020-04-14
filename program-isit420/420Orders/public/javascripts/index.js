@@ -1,23 +1,26 @@
 let newObject;
+let build420 = [];
+let holdNums = 0;
 
 const mainData = () => {
     document.addEventListener("DOMContentLoaded", function(event){
 
         document.getElementById('button1').addEventListener("click", function(){
-                  getData(); 
+                  while(holdNums < 5){
+                      getData();
+                      holdNums++;
+                  }
         })
-    })
-    
+    }) 
     document.getElementById('button2').addEventListener("click", function(){
-            showData();
-    })  
+            uploadData();
+    
+    })
+    document.getElementById('button3').addEventListener("click", function(){
+      //  generateMongo();
+})    
 }
                             
-const showData = () => {
-    $(document).ready(function () {
-         uploadData();         
-});
-}
 //    (async () => {
 //         // console.log('here');
 //         const response = await fetch('/newObject',{
@@ -64,6 +67,7 @@ const getData = () => {
     }
     let myRand_2;
     let myRand = infos.storeNumber[Math.floor(Math.random() * infos.storeNumber.length)];
+
     if(myRand === 98053){
         myRand_2 = getRand(1,4);
         if(infos.storeNumber.indexOf(myRand_2) !== -1) {
@@ -108,18 +112,41 @@ const getData = () => {
         }
     let myRand_3 = infos.itemNumber[Math.floor(Math.random() * infos.itemNumber.length)];
     let myRand_4 = infos.pricePaid[Math.floor(Math.random() * infos.pricePaid.length)];
+
     newObject = {
-           storeNumber:  myRand,
-           salesPersonID: myRand_2,
-           itemNumber: myRand_3,
-           timePurch: Date(Date.now).toString(),
-           pricePaid: myRand_4
+           storeNumber:  [myRand],
+           salesPersonID: [myRand_2],
+           itemNumber: [myRand_3],
+           timePurch: [Date(Date.now).toString()],
+           pricePaid: [myRand_4]
      }
-     document.getElementById('show').innerHTML += myRand + ' ' + myRand_2 + ' ' + myRand_3 
-             + ' ' + myRand_4 + ' ' + infos.timePurch.toString();
+     for(let i =0; i < newObject.storeNumber.length; i++){
+     document.getElementById('show').innerHTML += 
+                                          newObject.storeNumber[i] + ' '
+                                        + newObject.salesPersonID[i] + ' ' 
+                                        + newObject.itemNumber[i] + ' ' 
+                                        + newObject.timePurch[i] + ' '
+                                        + newObject.pricePaid[i] + '  ';
+     }
+      
+     
     }
+
 const getRand = (min, max) => {
         var randInt = (Math.floor(Math.random() * (max - min + 1)) + min);
           return randInt;
-     }    
+}
+const generateMongo = () => {
+     for(let i =0; i < newObject.storeNumber.length; i ++){
+        build420.push(newObject.storeNumber[i],
+         newObject.salesPersonID[i] ,
+         newObject.itemNumber[i] ,
+         newObject.timePurch[i] ,
+         newObject.pricePaid[i]); 
+         console.log('build420 is', build420);
+         
+     }   
+     return build420;
+    
+}
 mainData();
