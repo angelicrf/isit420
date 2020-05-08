@@ -11,7 +11,8 @@ namespace MongoUploadData
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+    [NotMapped]
     public partial class SalesPersonTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -27,6 +28,7 @@ namespace MongoUploadData
         public int StoreNumberID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [NotMapped]
         public virtual ICollection<Order> Orders { get; set; }
         public virtual StoreTable StoreTable { get; set; }
     }

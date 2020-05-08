@@ -10,6 +10,7 @@
 namespace MongoUploadData
 {
     using System;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
@@ -22,14 +23,22 @@ namespace MongoUploadData
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
+            modelBuilder.Entity<Order>().Ignore(t => t.StoreTable);
+            modelBuilder.Entity<Order>().Ignore(t => t.CDTable);
+            modelBuilder.Entity<Order>().Ignore(t => t.SalesPersonTable);
+            //base.OnModelCreating(modelBuilder);
+           // throw new UnintentionalCodeFirstException();
         }
-    
+        [NotMapped]
         public virtual DbSet<CDTable> CDTables { get; set; }
+        [NotMapped]
         public virtual DbSet<Inventory> Inventories { get; set; }
+        [NotMapped]
         public virtual DbSet<Note> Notes { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
+        [NotMapped]
         public virtual DbSet<SalesPersonTable> SalesPersonTables { get; set; }
+        [NotMapped]
         public virtual DbSet<StoreTable> StoreTables { get; set; }
     }
 }

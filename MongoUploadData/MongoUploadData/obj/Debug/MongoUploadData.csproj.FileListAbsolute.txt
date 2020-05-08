@@ -85,4 +85,3 @@ C:\Users\angel\Documents\ISIT420\MongoUploadData\MongoUploadData\bin\EntityFrame
 C:\Users\angel\Documents\ISIT420\MongoUploadData\MongoUploadData\bin\EntityFramework.SqlServer.dll
 C:\Users\angel\Documents\ISIT420\MongoUploadData\MongoUploadData\bin\EntityFramework.xml
 C:\Users\angel\Documents\ISIT420\MongoUploadData\MongoUploadData\bin\EntityFramework.SqlServer.xml
-C:\Users\angel\Documents\ISIT420\MongoUploadData\MongoUploadData\obj\Debug\MongoUploadData.csprojAssemblyReference.cache

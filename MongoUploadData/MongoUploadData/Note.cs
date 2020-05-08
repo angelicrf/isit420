@@ -11,7 +11,9 @@ namespace MongoUploadData
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [NotMapped]
     public partial class Note
     {
         public int NoteId { get; set; }

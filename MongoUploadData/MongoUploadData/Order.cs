@@ -11,7 +11,8 @@ namespace MongoUploadData
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Order
     {
         public int OrdersID { get; set; }
@@ -20,9 +21,11 @@ namespace MongoUploadData
         public int CdID { get; set; }
         public int Price { get; set; }
         public DateTime Datetime { get; set; }
-
+        [NotMapped]
         public virtual CDTable CDTable { get; set; }
+        [NotMapped]
         public virtual SalesPersonTable SalesPersonTable { get; set; }
+        [NotMapped]
         public virtual StoreTable StoreTable { get; set; }
     }
 }
