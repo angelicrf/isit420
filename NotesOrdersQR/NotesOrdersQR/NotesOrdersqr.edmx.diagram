@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c418a22eb87e42eeb78dd6038b00e97e" Name="Diagram1">
+        <EntityTypeShape EntityType="NodeOrdersModel.CDTable" Width="1.5" PointX="3.125" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NodeOrdersModel.Inventory" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="NodeOrdersModel.Order" Width="1.5" PointX="7.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NodeOrdersModel.SalesPersonTable" Width="1.5" PointX="2.625" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NodeOrdersModel.StoreTable" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NodeOrdersModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="NodeOrdersModel.FK_Inventory_CDTable" ManuallyRouted="false" />
+        <AssociationConnector Association="NodeOrdersModel.FK_Orders_CDTable" ManuallyRouted="false" />
+        <AssociationConnector Association="NodeOrdersModel.FK_Orders_SalesPersonTable" ManuallyRouted="false" />
+        <AssociationConnector Association="NodeOrdersModel.FK_Orders_StoreTable" ManuallyRouted="false" />
+        <AssociationConnector Association="NodeOrdersModel.FK_SalesPersonTable_StoreTable" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
