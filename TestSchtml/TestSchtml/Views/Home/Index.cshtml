@@ -1,0 +1,95 @@
+﻿@model TestSchtml.Models.SelectModel
+<div>
+    <h2>The query one is:</h2>
+    <ul id="findQuery1"></ul>
+</div>
+<div>
+    <h2>The query two is:</h2>
+    @*<form id="myform3" action="Home/SelectId" method="post">
+        <select name="sid" id="sid">
+            <option id="1" value="1" name="1">1</option>
+            <option id="2" value="2" name="2">2</option>
+            <option id="3" value="3" name="3">3</option>
+            <option id="4" value="4" name="4">4</option>
+            <option id="5" value="5" name="5">5</option>
+            <option id="6" value="6" name="6">6</option>
+            <option id="7" value="7" name="7">7</option>
+            <option id="8" value="8" name="8">8</option>
+            <option id="9" value="9" name="9">9</option>
+            <option id="10" value="10" name="10">10</option>
+            <option id="11" value="11" name="11">11</option>
+            <option id="12" value="12" name="12">12</option>
+            <option id="13" value="13" name="13">13</option>
+            <option id="14" value="14" name="14">14</option>
+            <option id="15" value="15" name="15">15</option>
+            <option id="16" value="16" name="16">16</option>
+            <option id="17" value="17" name="17">17</option>
+            <option id="18" value="18" name="18">18</option>
+            <option id="19" value="19" name="19">19</option>
+            <option id="20" value="20" name="20">20</option>
+            <option id="21" value="21" name="21">21</option>
+
+        </select>
+        <br />
+        <input type="submit" id="btn4" value="send" />
+    </form>
+
+    <button onClick="GetSecondData()">ShowData</button>
+    <ul id="findQuery2"></ul>*@
+
+
+    <form id="myform2" action="Home/FindPerson" method="post">
+        <select name="person" id="person">
+            <option id="Flores" value="Flores" name="Flores">Flores</option>
+            <option id="Coleman" value="Coleman" name="Coleman">Coleman</option>
+            <option id="Young" value="Young" name="Young">Young</option>
+            <option id="Diaz" value="Diaz" name="Diaz">Diaz</option>
+            <option id="Suzuki" value="Suzuki" name="Suzuki">Suzuki</option>
+            <option id="Russell" value="Russell" name="Russell">Russell</option>
+            <option id="King" value="King" name="King">King</option>
+            <option id="Turner" value="Turner" name="Turner">Turner</option>
+            <option id="Johnson" value="Johnson" name="Johnson">Johnson</option>
+            <option id="Rivera" value="Rivera" name="Rivera">Rivera</option>
+            <option id="Watson" value="Watson" name="Watson">Watson</option>
+            <option id="Bryant" value="Bryant" name="Bryant">Bryant</option>
+            <option id="Sanchez" value="Sanchez" name="Sanchez">Sanchez</option>
+            <option id="Li" value="Li" name="Li">Li</option>
+            <option id="Garcia" value="Garcia" name="Garcia">Garcia</option>
+            <option id="Martin" value="Martin" name="Martin">Martin</option>
+            <option id="Mitchel" value="Mitchel" name="Mitchel">Mitchel</option>
+            <option id="Zhao" value="Zhao" name="Zhao">Zhao</option>
+            <option id="Barne" value="Barne" name="Barne">Barne</option>
+            <option id="Kobayashi" value="Kobayashi" name="Kobayashi">Kobayashi</option>
+            <option id="White" value="White" name="White">White</option>
+            <option id="Carter" value="Carter" name="Carter">Carter</option>
+            <option id="Perez" value="Perez" name="Perez">Perez</option>
+            <option id="Cox" value="Cox" name="Cox">Cox</option>
+
+        </select>
+        <br />
+        <input type="submit" id="btn2" value="send" />
+    </form>
+
+    <button onClick="GetSecondData()">ShowData</button>
+    <ul id="findQuery2"></ul>
+</div>
+<div>
+    <h2>The query three is:</h2>
+    <form id="myform" action="Home/CalcuateMT" method="post">
+        <select name="agent" id="agent">
+            <option id="Redmond" value="Redmond" name="Redmond">Redmond</option>
+            <option id="Lynnwood" value="Lynnwood" name="Lynnwood">Lynnwood</option>
+            <option id="Bothell" value="Bothell" Bothell">Bothell</option>
+            <option id="Renton" value="Renton" name="Renton">Renton</option>
+            <option id="Woodinville" value="Woodinville" Woodinville">Woodinville</option>
+        </select>
+        <br />
+        <input type="submit" id="btn1" value="send" />
+    </form>
+
+    <button onClick="GetThirdData()" id="btn3">ShowData</button>
+    <ul id="findQuery3"></ul>
+</div>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+<script src="~/Scripts/myScript.js"></script>
