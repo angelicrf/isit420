@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "AnalysisServicesCubes", "AnalysisServicesCubes.dwproj", "{97B22135-7E37-4D6A-83E8-977B770D902A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97B22135-7E37-4D6A-83E8-977B770D902A}.Development|Default.ActiveCfg = Development
+		{97B22135-7E37-4D6A-83E8-977B770D902A}.Development|Default.Build.0 = Development
+		{97B22135-7E37-4D6A-83E8-977B770D902A}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48E59967-33CA-4D39-9794-ED96F848AE00}
+	EndGlobalSection
+EndGlobal

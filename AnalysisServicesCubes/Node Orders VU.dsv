@@ -1,0 +1,173 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="acc09f72-15f7-4ef7-a9b0-92d4434cc80e" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Node Orders VU</ID>
+  <Name>Node Orders VU</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>Node Orders DS</DataSourceID>
+  <Schema>
+    <xs:schema id="Node_x0020_Orders_x0020_VU" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="Node_x0020_Orders_x0020_VU" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="481b5691-207c-447e-b69a-4edf2a88531c">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_Orders" msprop:design-time-name="53f097e4-2ec8-4290-a202-62ae55a8227d" msprop:DbTableName="Orders" msprop:FriendlyName="Orders" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="OrdersID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="0f4449c5-e17c-4106-b8ee-e700adfe1911" msprop:DbColumnName="OrdersID" msprop:FriendlyName="OrdersID" type="xs:int" />
+                  <xs:element name="StoreNumberID" msprop:design-time-name="1e5d495a-ee33-4b0f-90c9-581070970d9c" msprop:DbColumnName="StoreNumberID" msprop:FriendlyName="StoreNumberID" type="xs:int" />
+                  <xs:element name="SalesPersonID" msprop:design-time-name="f0ab2759-d1ad-4bd2-bb0c-b0999d937735" msprop:DbColumnName="SalesPersonID" msprop:FriendlyName="SalesPersonID" type="xs:int" />
+                  <xs:element name="CdID" msprop:design-time-name="dcb72cca-766e-40c7-9b47-112df396ac50" msprop:DbColumnName="CdID" msprop:FriendlyName="CdID" type="xs:int" />
+                  <xs:element name="Price" msprop:design-time-name="ccd4deb3-965e-4e79-aa96-08ad5128888a" msprop:DbColumnName="Price" msprop:FriendlyName="Price" type="xs:int" />
+                  <xs:element name="Datetime" msprop:design-time-name="3ad5d2b8-de91-4548-9552-afe1492621f7" msprop:DbColumnName="Datetime" msprop:FriendlyName="Datetime" type="xs:dateTime" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_StoreTable" msprop:design-time-name="5563c458-13a8-41d4-9f83-d67e7f095762" msprop:DbTableName="StoreTable" msprop:FriendlyName="StoreTable" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="StoreNumberID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="72b8fefa-8f02-448f-84fe-3a0eda8b64aa" msprop:DbColumnName="StoreNumberID" msprop:FriendlyName="StoreNumberID" type="xs:int" />
+                  <xs:element name="City" msprop:design-time-name="95ed046c-9d0c-45db-bb38-f0bcdcbd3e71" msprop:DbColumnName="City" msprop:FriendlyName="City">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="State" msprop:design-time-name="c6322e50-43d6-43a7-9387-53e0afd5da70" msprop:DbColumnName="State" msprop:FriendlyName="State">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NumberEmployees" msprop:design-time-name="3943a389-8103-4035-82d8-6fafe85bb809" msprop:DbColumnName="NumberEmployees" msprop:FriendlyName="NumberEmployees" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_CDTable" msprop:design-time-name="1cfa8967-93e4-40b4-8a95-f9b60e98e46b" msprop:DbTableName="CDTable" msprop:FriendlyName="CDTable" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="CdID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="7619dba8-d4e6-4fc5-8802-89e83706be81" msprop:DbColumnName="CdID" msprop:FriendlyName="CdID" type="xs:int" />
+                  <xs:element name="CDname" msprop:design-time-name="751f34a0-8f45-407a-81ca-6c017949f557" msprop:DbColumnName="CDname" msprop:FriendlyName="CDname">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Artist" msprop:design-time-name="11f1a1cb-3776-470e-9967-8e807632151a" msprop:DbColumnName="Artist" msprop:FriendlyName="Artist">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="RecordCompany" msprop:design-time-name="9895be89-87ef-426b-adfe-2a489ac390e4" msprop:DbColumnName="RecordCompany" msprop:FriendlyName="RecordCompany">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="YearReleased" msprop:design-time-name="749b95d7-b652-4b47-bf75-abbf34ca820a" msprop:DbColumnName="YearReleased" msprop:FriendlyName="YearReleased" type="xs:int" />
+                  <xs:element name="ListPrice" msprop:design-time-name="719d63c0-5d37-4a2c-b6fb-85ddf5e8e455" msprop:DbColumnName="ListPrice" msprop:FriendlyName="ListPrice" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_SalesPersonTable" msprop:design-time-name="f4dffbd5-6d16-454e-a7ad-9544a7c71644" msprop:DbTableName="SalesPersonTable" msprop:FriendlyName="SalesPersonTable" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="SalesPersonID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="d63e73ef-3394-4862-b9ef-3af0458f263e" msprop:DbColumnName="SalesPersonID" msprop:FriendlyName="SalesPersonID" type="xs:int" />
+                  <xs:element name="FirstName" msprop:design-time-name="d5b21fc9-1ae0-49a1-88a9-242e43332b5a" msprop:DbColumnName="FirstName" msprop:FriendlyName="FirstName">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="LastName" msprop:design-time-name="6bc7b8d0-94de-4b9a-8e5d-3da105340d1e" msprop:DbColumnName="LastName" msprop:FriendlyName="LastName">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Age" msprop:design-time-name="cf89a126-4e71-47cb-ad18-43c175dbfb81" msprop:DbColumnName="Age" msprop:FriendlyName="Age" type="xs:int" />
+                  <xs:element name="StoreNumberID" msprop:design-time-name="04332b6f-869d-46c9-bd62-8bf35498b6b5" msprop:DbColumnName="StoreNumberID" msprop:FriendlyName="StoreNumberID" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Orders" />
+          <xs:field xpath="OrdersID" />
+        </xs:unique>
+        <xs:unique name="dbo_StoreTable_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_StoreTable" />
+          <xs:field xpath="StoreNumberID" />
+        </xs:unique>
+        <xs:unique name="dbo_CDTable_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_CDTable" />
+          <xs:field xpath="CdID" />
+        </xs:unique>
+        <xs:unique name="dbo_SalesPersonTable_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_SalesPersonTable" />
+          <xs:field xpath="SalesPersonID" />
+        </xs:unique>
+        <xs:keyref name="FK_SalesPersonTable_StoreTable" refer="dbo_StoreTable_Constraint1">
+          <xs:selector xpath=".//dbo_SalesPersonTable" />
+          <xs:field xpath="StoreNumberID" />
+        </xs:keyref>
+        <xs:keyref name="FK_Orders_CDTable" refer="dbo_CDTable_Constraint1">
+          <xs:selector xpath=".//dbo_Orders" />
+          <xs:field xpath="CdID" />
+        </xs:keyref>
+        <xs:keyref name="FK_Orders_StoreTable" refer="dbo_StoreTable_Constraint1">
+          <xs:selector xpath=".//dbo_Orders" />
+          <xs:field xpath="StoreNumberID" />
+        </xs:keyref>
+        <xs:keyref name="FK_Orders_SalesPersonTable" refer="dbo_SalesPersonTable_Constraint1">
+          <xs:selector xpath=".//dbo_Orders" />
+          <xs:field xpath="SalesPersonID" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <Node_x0020_Orders_x0020_VU xmlns="" />
+  </Schema>
+</DataSourceView>
