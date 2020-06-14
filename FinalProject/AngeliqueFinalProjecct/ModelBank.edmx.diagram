@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1b8b175b17b1405bb1b9f4363e988031" Name="Diagram1">
+        <EntityTypeShape EntityType="BanksModel.CommercialBank" Width="1.5" PointX="4.875" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanksModel.CommercialFinance" Width="1.5" PointX="4.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanksModel.FailedBank" Width="1.5" PointX="1.125" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanksModel.FailedFinance" Width="1.5" PointX="2.875" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanksModel.FailedGDP" Width="1.5" PointX="0.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanksModel.InstitutAll" Width="1.5" PointX="10.125" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanksModel.InstitutesFinance" Width="1.5" PointX="7" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanksModel.InstitutesInsur" Width="1.5" PointX="7.125" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanksModel.sysdiagram" Width="1.5" PointX="2.75" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="BanksModel.FK_CommercialBanks_FailedBanks" ManuallyRouted="false" />
+        <AssociationConnector Association="BanksModel.FK_CommercialBanks_FailedFinance" ManuallyRouted="false" />
+        <AssociationConnector Association="BanksModel.FK_CommercialBanks_FailedGDP" ManuallyRouted="false" />
+        <AssociationConnector Association="BanksModel.FK_CommercialFinance_CommercialBanks" ManuallyRouted="false" />
+        <AssociationConnector Association="BanksModel.FK_InstitutAll_CommercialBanks" ManuallyRouted="false" />
+        <AssociationConnector Association="BanksModel.FK_InstitutesFinance_CommercialBanks" ManuallyRouted="false" />
+        <AssociationConnector Association="BanksModel.FK_InstitutesInsurs_CommercialBanks" ManuallyRouted="false" />
+        <AssociationConnector Association="BanksModel.FK_CommercialFinance_FailedBanks" ManuallyRouted="false" />
+        <AssociationConnector Association="BanksModel.FK_CommercialFinance_FailedFinance" ManuallyRouted="false" />
+        <AssociationConnector Association="BanksModel.FK_CommercialFinance_FailedGDP" ManuallyRouted="false" />
+        <AssociationConnector Association="BanksModel.FK_InstitutAll_CommercialFinance" ManuallyRouted="false" />
+        <AssociationConnector Association="BanksModel.FK_InstitutesFinance_CommercialFinance" ManuallyRouted="false" />
+        <AssociationConnector Association="BanksModel.FK_InstitutesInsurs_CommercialFinance" ManuallyRouted="false" />
+        <AssociationConnector Association="BanksModel.FK_FailedBanks_InstitutAll" ManuallyRouted="false" />
+        <AssociationConnector Association="BanksModel.FK_FailedFinance_FailedBanks" ManuallyRouted="false" />
+        <AssociationConnector Association="BanksModel.FK_FailedGDP_FailedBanks" ManuallyRouted="false" />
+        <AssociationConnector Association="BanksModel.FK_InstitutesFinance_InstitutAll" ManuallyRouted="false" />
+        <AssociationConnector Association="BanksModel.FK_InstitutesInsurs_InstitutAll" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

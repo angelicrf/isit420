@@ -1,0 +1,113 @@
+﻿<div>
+        <h2>Display commercial banks by type:</h2>
+        <form id="Bankform" action="Home/SetBankDetail" method="post">
+            <select name="agent" id="agent">
+                <option id="COMMERCIAL BANK" value="COMMERCIAL BANK" name="COMMERCIAL BANK">COMMERCIAL BANK</option>
+                <option id="SAVINGS BANK" value="SAVINGS BANK" name="SAVINGS BANK">SAVINGS BANK</option>
+                <option id="SAVINGS ASSOCIATION" value="SAVINGS ASSOCIATION" name="SAVINGS ASSOCIATION">SAVINGS ASSOCIATION</option>
+            </select>
+            <br />
+            <br />
+            <input class="btn-danger btn-lg" type="submit" value="Choose Bank Type" />
+        </form>
+        <br />
+        <button class="btn-primary btn-lg" onClick="GetBankList()">Commcial Banks List</button>
+            <br/>
+            <br/>
+        <table border="1" class="table-bordered" id="display1"></table>
+
+    </div>
+<div>
+    <h2>Search for a failed bank:</h2>
+    <form id="Failedform" action="Home/FailedBks" method="post">
+        <input type="text" name="failedb" value="" placeholder="Type a bank name ..." />
+        <br />
+        <br />
+        <input class="btn-danger btn-lg" type="submit" value="verify" />
+    </form>
+    <br />
+    <script src="~/Scripts/MyJavaScript.js"></script>
+    <script>
+        setTimeout(function testtotry() {
+            GetFailedBanksList();
+        },5000)();
+    </script>
+    <br />
+    <br />
+    <table border="1" class="table-bordered" id="display2"></table>
+    <div>
+        <h2>Display financial institues list in a specific state:</h2>
+        <form id="Bankform" action="Home/InstitutesDetail" method="post">
+            <select name="agent" id="agent">
+                <option id="AK" value="AK" name="AK">AK</option>
+                <option id="AL" value="AL" name="AL">AL</option>
+                <option id="AR" value="AR" name="AR">AR</option>
+                <option id="AS" value="AS" name="AS">AS</option>
+                <option id="AZ" value="AZ" name="AZ">AZ</option>
+                <option id="CA" value="CA" name="CA">CA</option>
+                <option id="CO" value="CO" name="CO">CO</option>
+                <option id="CT" value="CT" name="CT">CT</option>
+                <option id="DC" value="DC" name="DC">DC</option>
+                <option id="DE" value="DE" name="DE">DE</option>
+                <option id="FL" value="FL" name="FL">FL</option>
+                <option id="FM" value="FM" name="FM">FM</option>
+                <option id="GA" value="GA" name="GA">GA</option>
+                <option id="GU" value="GU" name="GU">GU</option>
+                <option id="HI" value="HI" name="HI">HI</option>
+                <option id="IA" value="IA" name="IA">IA</option>
+                <option id="ID" value="ID" name="ID">ID</option>
+                <option id="IL" value="IL" name="IL">IL</option>
+                <option id="IN" value="IN" name="IN">IN</option>
+                <option id="KS" value="KS" name="KS">KS</option>
+                <option id="KY" value="KY" name="KY">KY</option>
+                <option id="LA" value="LA" name="AK">LA</option>
+                <option id="MA" value="MA" name="MA">MA</option>
+                <option id="MD" value="MD" name="MD">MD</option>
+                <option id="ME" value="ME" name="ME">ME</option>
+                <option id="MI" value="MI" name="MI">MI</option>
+                <option id="MN" value="MN" name="MN">MN</option>
+                <option id="MO" value="MO" name="MO">MO</option>
+                <option id="MS" value="MS" name="MS">MS</option>
+                <option id="MT" value="MT" name="MT">MT</option>
+                <option id="NC" value="NC" name="NC">NC</option>
+                <option id="ND" value="ND" name="ND">ND</option>
+                <option id="NE" value="NE" name="NE">NE</option>
+                <option id="NH" value="NH" name="NH">NH</option>
+                <option id="NJ" value="NJ" name="NJ">NJ</option>
+                <option id="NM" value="NM" name="NM">NM</option>
+                <option id="NV" value="NV" name="NV">NV</option>
+                <option id="NY" value="NY" name="NY">NY</option>
+                <option id="OH" value="OH" name="OH">OH</option>
+                <option id="OK" value="OK" name="OK">OK</option>
+                <option id="OR" value="OR" name="OR">OR</option>
+                <option id="PA" value="PA" name="PA">PA</option>
+                <option id="PR" value="PR" name="PR">PR</option>
+                <option id="RI" value="RI" name="RI">RI</option>
+                <option id="SC" value="SC" name="SC">SC</option>
+                <option id="SD" value="SD" name="SD">SD</option>
+                <option id="TN" value="TN" name="TN">TN</option>
+                <option id="TX" value="TX" name="TX">TX</option>
+                <option id="UT" value="UT" name="UT">UT</option>
+                <option id="VA" value="VA" name="VA">VA</option>
+                <option id="VI" value="VI" name="VI">VI</option>
+                <option id="VT" value="VT" name="VT">VT</option>
+                <option id="WA" value="WA" name="WA">WA</option>
+                <option id="WI" value="WI" name="WI">WI</option>
+                <option id="WV" value="WV" name="WV">WV</option>
+                <option id="WY" value="WY" name="WY">WY</option>
+
+            </select>
+            <br />
+            <br />
+            <input class="btn-success btn-lg" type="submit" value="Choose State" />
+        </form>
+        <br />
+        <button class="btn-info btn-lg" onClick="GetInstitutesList()">Institutes</button>
+        <br />
+        <br />
+        <table border="1" class="table-bordered" id="display3"></table>
+    </div>
+</div>
+  
+
+

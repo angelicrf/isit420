@@ -1,0 +1,48 @@
+ALTER TABLE [dbo].[FailedBanks$]
+add primary key (BankName)
+
+alter table [dbo].[FailedBanks$]
+ALTER COLUMN[BankName] NVARCHAR(255)NOT NULL
+
+select count (BankName) from [dbo].[FailedBanks$]
+where BankName  = NULL;
+
+find duplicates:
+SELECT BankName ,COUNT(BankName) 
+FROM [dbo].[CMBanks$]
+GROUP BY [BankName]
+HAVING COUNT(BankName) > 1
+
+delete duplicates values
+with tempfailed as (
+select *, ROW_NUMBER() over (partition by BankName order by BankName) as rowNum4
+from [dbo].[FailedBanks$]
+)
+select * from tempfailed
+delete from tempfailed  where rowNum4 > 1
+
+change the foreign key to be unchecked:
+ALTER TABLE [dbo].[CMBanks$] WITH NOCHECK
+ADD FOREIGN KEY (BankName) REFERENCES [dbo].[FailedBanks$](BankName)
+
+join tables without pk-fk
+SELECT distinct FailedBanks$.*
+FROM CMBanks$
+cross JOIN FailedBanks$
+where FailedBanks$.CITY = 'Culver City'
+and CMBanks$.BankName = 'alliance bank' 
+
+set via update:
+update  [dbo].[CMBanks$]
+set [FB_Id]=0 where [FB_Id] is null
+
+regular inner join:
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+
+regular delete a column in atable:
+ALTER TABLE [dbo].[InstituAll$] DROP COLUMN [TotalOffices]
+
+delete data from a table:
+DELETE FROM [dbo].[CommercialFinance$] WHERE [CMFI_Id]=3489

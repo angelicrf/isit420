@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BanksModelStoreContainer" CdmEntityContainer="BanksEntities">
+    <EntitySetMapping Name="CommercialBanks">
+      <EntityTypeMapping TypeName="IsTypeOf(BanksModel.CommercialBank)">
+        <MappingFragment StoreEntitySet="CommercialBanks">
+          <ScalarProperty Name="CM_Id" ColumnName="CM_Id" />
+          <ScalarProperty Name="FailureDate" ColumnName="FailureDate" />
+          <ScalarProperty Name="Headquarters" ColumnName="Headquarters" />
+          <ScalarProperty Name="CharterType" ColumnName="CharterType" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="FK_FB_Id" ColumnName="FK_FB_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommercialFinances">
+      <EntityTypeMapping TypeName="BanksModel.CommercialFinance">
+        <MappingFragment StoreEntitySet="CommercialFinance">
+          <ScalarProperty Name="CMFI_Id" ColumnName="CMFI_Id" />
+          <ScalarProperty Name="FK_CM_Id" ColumnName="FK_CM_Id" />
+          <ScalarProperty Name="FK_FB_Id" ColumnName="FK_FB_Id" />
+          <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+          <ScalarProperty Name="TotalDeposits" ColumnName="TotalDeposits" />
+          <ScalarProperty Name="TotalAssets" ColumnName="TotalAssets" />
+          <ScalarProperty Name="InsuranceFund" ColumnName="InsuranceFund" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FailedBanks">
+      <EntityTypeMapping TypeName="BanksModel.FailedBank">
+        <MappingFragment StoreEntitySet="FailedBanks">
+          <ScalarProperty Name="FB_Id" ColumnName="FB_Id" />
+          <ScalarProperty Name="CERT" ColumnName="CERT" />
+          <ScalarProperty Name="ReportingDate" ColumnName="ReportingDate" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="CITY" ColumnName="CITY" />
+          <ScalarProperty Name="COUNTY" ColumnName="COUNTY" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="TotalOffices" ColumnName="TotalOffices" />
+          <ScalarProperty Name="TotalEmployees" ColumnName="TotalEmployees" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FailedFinances">
+      <EntityTypeMapping TypeName="BanksModel.FailedFinance">
+        <MappingFragment StoreEntitySet="FailedFinance">
+          <ScalarProperty Name="FBFI_Id" ColumnName="FBFI_Id" />
+          <ScalarProperty Name="FK_FB_Id" ColumnName="FK_FB_Id" />
+          <ScalarProperty Name="TotalAssets" ColumnName="TotalAssets" />
+          <ScalarProperty Name="NetLoansLeases" ColumnName="NetLoansLeases" />
+          <ScalarProperty Name="NoncurrentLloansLeases" ColumnName="NoncurrentLloansLeases" />
+          <ScalarProperty Name="BankPremisesFixedAssets" ColumnName="BankPremisesFixedAssets" />
+          <ScalarProperty Name="GoodwillOtherIntangibles" ColumnName="GoodwillOtherIntangibles" />
+          <ScalarProperty Name="TotalLiabilities" ColumnName="TotalLiabilities" />
+          <ScalarProperty Name="TotalDeposits" ColumnName="TotalDeposits" />
+          <ScalarProperty Name="InterestBearingDeposits" ColumnName="InterestBearingDeposits" />
+          <ScalarProperty Name="BankEquityCapital" ColumnName="BankEquityCapital" />
+          <ScalarProperty Name="UndividedProfits" ColumnName="UndividedProfits" />
+          <ScalarProperty Name="NumberCommercialBanks" ColumnName="NumberCommercialBanks" />
+          <ScalarProperty Name="NetInterestMargin" ColumnName="NetInterestMargin" />
+          <ScalarProperty Name="PrimeLoanRate" ColumnName="PrimeLoanRate" />
+          <ScalarProperty Name="FederalFundsRate" ColumnName="FederalFundsRate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FailedGDPs">
+      <EntityTypeMapping TypeName="BanksModel.FailedGDP">
+        <MappingFragment StoreEntitySet="FailedGDP">
+          <ScalarProperty Name="FBGDP_Id" ColumnName="FBGDP_Id" />
+          <ScalarProperty Name="FK_FB_Id" ColumnName="FK_FB_Id" />
+          <ScalarProperty Name="GDPPerCapita" ColumnName="GDPPerCapita" />
+          <ScalarProperty Name="GDPGrowthPerCapitaQuarterToQuarter" ColumnName="GDPGrowthPerCapitaQuarterToQuarter" />
+          <ScalarProperty Name="GDPInBillions" ColumnName="GDPInBillions" />
+          <ScalarProperty Name="GDPGrowthQuarterToQuarter" ColumnName="GDPGrowthQuarterToQuarter" />
+          <ScalarProperty Name="ClosingDate" ColumnName="ClosingDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InstitutAlls">
+      <EntityTypeMapping TypeName="BanksModel.InstitutAll">
+        <MappingFragment StoreEntitySet="InstitutAll">
+          <ScalarProperty Name="INST_Id" ColumnName="INST_Id" />
+          <ScalarProperty Name="CERT" ColumnName="CERT" />
+          <ScalarProperty Name="FK_CM_Id" ColumnName="FK_CM_Id" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="CITY" ColumnName="CITY" />
+          <ScalarProperty Name="COUNTY" ColumnName="COUNTY" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+          <ScalarProperty Name="BankWebSite" ColumnName="BankWebSite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InstitutesFinances">
+      <EntityTypeMapping TypeName="BanksModel.InstitutesFinance">
+        <MappingFragment StoreEntitySet="InstitutesFinance">
+          <ScalarProperty Name="INSTFI_Id" ColumnName="INSTFI_Id" />
+          <ScalarProperty Name="FK_CERT" ColumnName="FK_CERT" />
+          <ScalarProperty Name="FK_CM_Id" ColumnName="FK_CM_Id" />
+          <ScalarProperty Name="TotalOffices" ColumnName="TotalOffices" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="TotalAssets" ColumnName="TotalAssets" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="TotalEquity" ColumnName="TotalEquity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InstitutesInsurs">
+      <EntityTypeMapping TypeName="BanksModel.InstitutesInsur">
+        <MappingFragment StoreEntitySet="InstitutesInsurs">
+          <ScalarProperty Name="INSTIN_Id" ColumnName="INSTIN_Id" />
+          <ScalarProperty Name="FK_CERT" ColumnName="FK_CERT" />
+          <ScalarProperty Name="FK_CM_Id" ColumnName="FK_CM_Id" />
+          <ScalarProperty Name="ROA" ColumnName="ROA" />
+          <ScalarProperty Name="ROAQ" ColumnName="ROAQ" />
+          <ScalarProperty Name="ROE" ColumnName="ROE" />
+          <ScalarProperty Name="ROEQ" ColumnName="ROEQ" />
+          <ScalarProperty Name="ROAPTX" ColumnName="ROAPTX" />
+          <ScalarProperty Name="ROAPTXQ" ColumnName="ROAPTXQ" />
+          <ScalarProperty Name="BankNetInc" ColumnName="BankNetInc" />
+          <ScalarProperty Name="InsuranceFund" ColumnName="InsuranceFund" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BanksModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

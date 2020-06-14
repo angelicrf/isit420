@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BanksModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CommercialBank">
+    <Key>
+      <PropertyRef Name="CM_Id" />
+    </Key>
+    <Property Name="CM_Id" Type="Double" Nullable="false" />
+    <Property Name="FK_FB_Id" Type="Double" />
+    <Property Name="BankName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CharterType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Headquarters" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FailureDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="FailedBank" Relationship="Self.FK_CommercialBanks_FailedBanks" FromRole="CommercialBanks" ToRole="FailedBanks" />
+    <NavigationProperty Name="FailedFinance" Relationship="Self.FK_CommercialBanks_FailedFinance" FromRole="CommercialBanks" ToRole="FailedFinance" />
+    <NavigationProperty Name="FailedGDP" Relationship="Self.FK_CommercialBanks_FailedGDP" FromRole="CommercialBanks" ToRole="FailedGDP" />
+    <NavigationProperty Name="CommercialFinances" Relationship="Self.FK_CommercialFinance_CommercialBanks" FromRole="CommercialBanks" ToRole="CommercialFinance" />
+    <NavigationProperty Name="InstitutAlls" Relationship="Self.FK_InstitutAll_CommercialBanks" FromRole="CommercialBanks" ToRole="InstitutAll" />
+    <NavigationProperty Name="InstitutesFinances" Relationship="Self.FK_InstitutesFinance_CommercialBanks" FromRole="CommercialBanks" ToRole="InstitutesFinance" />
+    <NavigationProperty Name="InstitutesInsurs" Relationship="Self.FK_InstitutesInsurs_CommercialBanks" FromRole="CommercialBanks" ToRole="InstitutesInsurs" />
+  </EntityType>
+  <EntityType Name="CommercialFinance">
+    <Key>
+      <PropertyRef Name="CMFI_Id" />
+    </Key>
+    <Property Name="CMFI_Id" Type="Double" Nullable="false" />
+    <Property Name="FK_CM_Id" Type="Double" />
+    <Property Name="FK_FB_Id" Type="Double" />
+    <Property Name="TransactionType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TotalDeposits" Type="Double" />
+    <Property Name="TotalAssets" Type="Double" />
+    <Property Name="InsuranceFund" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CommercialBank" Relationship="Self.FK_CommercialFinance_CommercialBanks" FromRole="CommercialFinance" ToRole="CommercialBanks" />
+    <NavigationProperty Name="FailedBank" Relationship="Self.FK_CommercialFinance_FailedBanks" FromRole="CommercialFinance" ToRole="FailedBanks" />
+    <NavigationProperty Name="FailedFinance" Relationship="Self.FK_CommercialFinance_FailedFinance" FromRole="CommercialFinance" ToRole="FailedFinance" />
+    <NavigationProperty Name="FailedGDP" Relationship="Self.FK_CommercialFinance_FailedGDP" FromRole="CommercialFinance" ToRole="FailedGDP" />
+    <NavigationProperty Name="InstitutAlls" Relationship="Self.FK_InstitutAll_CommercialFinance" FromRole="CommercialFinance" ToRole="InstitutAll" />
+    <NavigationProperty Name="InstitutesFinances" Relationship="Self.FK_InstitutesFinance_CommercialFinance" FromRole="CommercialFinance" ToRole="InstitutesFinance" />
+    <NavigationProperty Name="InstitutesInsurs" Relationship="Self.FK_InstitutesInsurs_CommercialFinance" FromRole="CommercialFinance" ToRole="InstitutesInsurs" />
+  </EntityType>
+  <EntityType Name="FailedBank">
+    <Key>
+      <PropertyRef Name="FB_Id" />
+    </Key>
+    <Property Name="FB_Id" Type="Double" Nullable="false" />
+    <Property Name="CERT" Type="Double" />
+    <Property Name="ReportingDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BankName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CITY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="COUNTY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TotalOffices" Type="Double" />
+    <Property Name="TotalEmployees" Type="Double" />
+    <NavigationProperty Name="CommercialBanks" Relationship="Self.FK_CommercialBanks_FailedBanks" FromRole="FailedBanks" ToRole="CommercialBanks" />
+    <NavigationProperty Name="CommercialFinances" Relationship="Self.FK_CommercialFinance_FailedBanks" FromRole="FailedBanks" ToRole="CommercialFinance" />
+    <NavigationProperty Name="InstitutAll" Relationship="Self.FK_FailedBanks_InstitutAll" FromRole="FailedBanks" ToRole="InstitutAll" />
+    <NavigationProperty Name="FailedFinances" Relationship="Self.FK_FailedFinance_FailedBanks" FromRole="FailedBanks" ToRole="FailedFinance" />
+    <NavigationProperty Name="FailedGDPs" Relationship="Self.FK_FailedGDP_FailedBanks" FromRole="FailedBanks" ToRole="FailedGDP" />
+  </EntityType>
+  <EntityType Name="FailedFinance">
+    <Key>
+      <PropertyRef Name="FBFI_Id" />
+    </Key>
+    <Property Name="FBFI_Id" Type="Double" Nullable="false" />
+    <Property Name="FK_FB_Id" Type="Double" />
+    <Property Name="TotalAssets" Type="Double" />
+    <Property Name="NetLoansLeases" Type="Double" />
+    <Property Name="NoncurrentLloansLeases" Type="Double" />
+    <Property Name="BankPremisesFixedAssets" Type="Double" />
+    <Property Name="GoodwillOtherIntangibles" Type="Double" />
+    <Property Name="TotalLiabilities" Type="Double" />
+    <Property Name="TotalDeposits" Type="Double" />
+    <Property Name="InterestBearingDeposits" Type="Double" />
+    <Property Name="BankEquityCapital" Type="Double" />
+    <Property Name="UndividedProfits" Type="Double" />
+    <Property Name="NumberCommercialBanks" Type="Double" />
+    <Property Name="NetInterestMargin" Type="Double" />
+    <Property Name="PrimeLoanRate" Type="Double" />
+    <Property Name="FederalFundsRate" Type="Double" />
+    <NavigationProperty Name="CommercialBanks" Relationship="Self.FK_CommercialBanks_FailedFinance" FromRole="FailedFinance" ToRole="CommercialBanks" />
+    <NavigationProperty Name="CommercialFinances" Relationship="Self.FK_CommercialFinance_FailedFinance" FromRole="FailedFinance" ToRole="CommercialFinance" />
+    <NavigationProperty Name="FailedBank" Relationship="Self.FK_FailedFinance_FailedBanks" FromRole="FailedFinance" ToRole="FailedBanks" />
+  </EntityType>
+  <EntityType Name="FailedGDP">
+    <Key>
+      <PropertyRef Name="FBGDP_Id" />
+    </Key>
+    <Property Name="FBGDP_Id" Type="Double" Nullable="false" />
+    <Property Name="FK_FB_Id" Type="Double" />
+    <Property Name="GDPPerCapita" Type="Double" />
+    <Property Name="GDPGrowthPerCapitaQuarterToQuarter" Type="Double" />
+    <Property Name="GDPInBillions" Type="Double" />
+    <Property Name="GDPGrowthQuarterToQuarter" Type="Double" />
+    <Property Name="ClosingDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CommercialBanks" Relationship="Self.FK_CommercialBanks_FailedGDP" FromRole="FailedGDP" ToRole="CommercialBanks" />
+    <NavigationProperty Name="CommercialFinances" Relationship="Self.FK_CommercialFinance_FailedGDP" FromRole="FailedGDP" ToRole="CommercialFinance" />
+    <NavigationProperty Name="FailedBank" Relationship="Self.FK_FailedGDP_FailedBanks" FromRole="FailedGDP" ToRole="FailedBanks" />
+  </EntityType>
+  <EntityType Name="InstitutAll">
+    <Key>
+      <PropertyRef Name="CERT" />
+    </Key>
+    <Property Name="INST_Id" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CERT" Type="Double" Nullable="false" />
+    <Property Name="FK_CM_Id" Type="Double" />
+    <Property Name="BankName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CITY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="COUNTY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ZIP" Type="Double" />
+    <Property Name="BankWebSite" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CommercialBank" Relationship="Self.FK_InstitutAll_CommercialBanks" FromRole="InstitutAll" ToRole="CommercialBanks" />
+    <NavigationProperty Name="CommercialFinance" Relationship="Self.FK_InstitutAll_CommercialFinance" FromRole="InstitutAll" ToRole="CommercialFinance" />
+    <NavigationProperty Name="FailedBanks" Relationship="Self.FK_FailedBanks_InstitutAll" FromRole="InstitutAll" ToRole="FailedBanks" />
+    <NavigationProperty Name="InstitutesFinances" Relationship="Self.FK_InstitutesFinance_InstitutAll" FromRole="InstitutAll" ToRole="InstitutesFinance" />
+    <NavigationProperty Name="InstitutesInsurs" Relationship="Self.FK_InstitutesInsurs_InstitutAll" FromRole="InstitutAll" ToRole="InstitutesInsurs" />
+  </EntityType>
+  <EntityType Name="InstitutesFinance">
+    <Key>
+      <PropertyRef Name="INSTFI_Id" />
+    </Key>
+    <Property Name="INSTFI_Id" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FK_CERT" Type="Double" />
+    <Property Name="FK_CM_Id" Type="Double" />
+    <Property Name="TotalOffices" Type="Double" />
+    <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="TotalAssets" Type="Double" />
+    <Property Name="DepartmentID" Type="Double" />
+    <Property Name="TotalEquity" Type="Double" />
+    <NavigationProperty Name="CommercialBank" Relationship="Self.FK_InstitutesFinance_CommercialBanks" FromRole="InstitutesFinance" ToRole="CommercialBanks" />
+    <NavigationProperty Name="CommercialFinance" Relationship="Self.FK_InstitutesFinance_CommercialFinance" FromRole="InstitutesFinance" ToRole="CommercialFinance" />
+    <NavigationProperty Name="InstitutAll" Relationship="Self.FK_InstitutesFinance_InstitutAll" FromRole="InstitutesFinance" ToRole="InstitutAll" />
+  </EntityType>
+  <EntityType Name="InstitutesInsur">
+    <Key>
+      <PropertyRef Name="INSTIN_Id" />
+    </Key>
+    <Property Name="INSTIN_Id" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FK_CERT" Type="Double" />
+    <Property Name="FK_CM_Id" Type="Double" />
+    <Property Name="ROA" Type="Double" />
+    <Property Name="ROAQ" Type="Double" />
+    <Property Name="ROE" Type="Double" />
+    <Property Name="ROEQ" Type="Double" />
+    <Property Name="ROAPTX" Type="Double" />
+    <Property Name="ROAPTXQ" Type="Double" />
+    <Property Name="BankNetInc" Type="Double" />
+    <Property Name="InsuranceFund" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CommercialBank" Relationship="Self.FK_InstitutesInsurs_CommercialBanks" FromRole="InstitutesInsurs" ToRole="CommercialBanks" />
+    <NavigationProperty Name="CommercialFinance" Relationship="Self.FK_InstitutesInsurs_CommercialFinance" FromRole="InstitutesInsurs" ToRole="CommercialFinance" />
+    <NavigationProperty Name="InstitutAll" Relationship="Self.FK_InstitutesInsurs_InstitutAll" FromRole="InstitutesInsurs" ToRole="InstitutAll" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_CommercialBanks_FailedBanks">
+    <End Role="FailedBanks" Type="Self.FailedBank" Multiplicity="0..1" />
+    <End Role="CommercialBanks" Type="Self.CommercialBank" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FailedBanks">
+        <PropertyRef Name="FB_Id" />
+      </Principal>
+      <Dependent Role="CommercialBanks">
+        <PropertyRef Name="FK_FB_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommercialBanks_FailedFinance">
+    <End Role="FailedFinance" Type="Self.FailedFinance" Multiplicity="0..1" />
+    <End Role="CommercialBanks" Type="Self.CommercialBank" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FailedFinance">
+        <PropertyRef Name="FBFI_Id" />
+      </Principal>
+      <Dependent Role="CommercialBanks">
+        <PropertyRef Name="FK_FB_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommercialBanks_FailedGDP">
+    <End Role="FailedGDP" Type="Self.FailedGDP" Multiplicity="0..1" />
+    <End Role="CommercialBanks" Type="Self.CommercialBank" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FailedGDP">
+        <PropertyRef Name="FBGDP_Id" />
+      </Principal>
+      <Dependent Role="CommercialBanks">
+        <PropertyRef Name="FK_FB_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommercialFinance_CommercialBanks">
+    <End Role="CommercialBanks" Type="Self.CommercialBank" Multiplicity="0..1" />
+    <End Role="CommercialFinance" Type="Self.CommercialFinance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CommercialBanks">
+        <PropertyRef Name="CM_Id" />
+      </Principal>
+      <Dependent Role="CommercialFinance">
+        <PropertyRef Name="FK_CM_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InstitutAll_CommercialBanks">
+    <End Role="CommercialBanks" Type="Self.CommercialBank" Multiplicity="0..1" />
+    <End Role="InstitutAll" Type="Self.InstitutAll" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CommercialBanks">
+        <PropertyRef Name="CM_Id" />
+      </Principal>
+      <Dependent Role="InstitutAll">
+        <PropertyRef Name="FK_CM_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InstitutesFinance_CommercialBanks">
+    <End Role="CommercialBanks" Type="Self.CommercialBank" Multiplicity="0..1" />
+    <End Role="InstitutesFinance" Type="Self.InstitutesFinance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CommercialBanks">
+        <PropertyRef Name="CM_Id" />
+      </Principal>
+      <Dependent Role="InstitutesFinance">
+        <PropertyRef Name="FK_CM_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InstitutesInsurs_CommercialBanks">
+    <End Role="CommercialBanks" Type="Self.CommercialBank" Multiplicity="0..1" />
+    <End Role="InstitutesInsurs" Type="Self.InstitutesInsur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CommercialBanks">
+        <PropertyRef Name="CM_Id" />
+      </Principal>
+      <Dependent Role="InstitutesInsurs">
+        <PropertyRef Name="FK_CM_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommercialFinance_FailedBanks">
+    <End Role="FailedBanks" Type="Self.FailedBank" Multiplicity="0..1" />
+    <End Role="CommercialFinance" Type="Self.CommercialFinance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FailedBanks">
+        <PropertyRef Name="FB_Id" />
+      </Principal>
+      <Dependent Role="CommercialFinance">
+        <PropertyRef Name="FK_FB_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommercialFinance_FailedFinance">
+    <End Role="FailedFinance" Type="Self.FailedFinance" Multiplicity="0..1" />
+    <End Role="CommercialFinance" Type="Self.CommercialFinance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FailedFinance">
+        <PropertyRef Name="FBFI_Id" />
+      </Principal>
+      <Dependent Role="CommercialFinance">
+        <PropertyRef Name="FK_FB_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommercialFinance_FailedGDP">
+    <End Role="FailedGDP" Type="Self.FailedGDP" Multiplicity="0..1" />
+    <End Role="CommercialFinance" Type="Self.CommercialFinance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FailedGDP">
+        <PropertyRef Name="FBGDP_Id" />
+      </Principal>
+      <Dependent Role="CommercialFinance">
+        <PropertyRef Name="FK_FB_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InstitutAll_CommercialFinance">
+    <End Role="CommercialFinance" Type="Self.CommercialFinance" Multiplicity="0..1" />
+    <End Role="InstitutAll" Type="Self.InstitutAll" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CommercialFinance">
+        <PropertyRef Name="CMFI_Id" />
+      </Principal>
+      <Dependent Role="InstitutAll">
+        <PropertyRef Name="FK_CM_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InstitutesFinance_CommercialFinance">
+    <End Role="CommercialFinance" Type="Self.CommercialFinance" Multiplicity="0..1" />
+    <End Role="InstitutesFinance" Type="Self.InstitutesFinance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CommercialFinance">
+        <PropertyRef Name="CMFI_Id" />
+      </Principal>
+      <Dependent Role="InstitutesFinance">
+        <PropertyRef Name="FK_CM_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InstitutesInsurs_CommercialFinance">
+    <End Role="CommercialFinance" Type="Self.CommercialFinance" Multiplicity="0..1" />
+    <End Role="InstitutesInsurs" Type="Self.InstitutesInsur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CommercialFinance">
+        <PropertyRef Name="CMFI_Id" />
+      </Principal>
+      <Dependent Role="InstitutesInsurs">
+        <PropertyRef Name="FK_CM_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FailedBanks_InstitutAll">
+    <End Role="InstitutAll" Type="Self.InstitutAll" Multiplicity="0..1" />
+    <End Role="FailedBanks" Type="Self.FailedBank" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InstitutAll">
+        <PropertyRef Name="CERT" />
+      </Principal>
+      <Dependent Role="FailedBanks">
+        <PropertyRef Name="CERT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FailedFinance_FailedBanks">
+    <End Role="FailedBanks" Type="Self.FailedBank" Multiplicity="0..1" />
+    <End Role="FailedFinance" Type="Self.FailedFinance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FailedBanks">
+        <PropertyRef Name="FB_Id" />
+      </Principal>
+      <Dependent Role="FailedFinance">
+        <PropertyRef Name="FK_FB_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FailedGDP_FailedBanks">
+    <End Role="FailedBanks" Type="Self.FailedBank" Multiplicity="0..1" />
+    <End Role="FailedGDP" Type="Self.FailedGDP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FailedBanks">
+        <PropertyRef Name="FB_Id" />
+      </Principal>
+      <Dependent Role="FailedGDP">
+        <PropertyRef Name="FK_FB_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InstitutesFinance_InstitutAll">
+    <End Role="InstitutAll" Type="Self.InstitutAll" Multiplicity="0..1" />
+    <End Role="InstitutesFinance" Type="Self.InstitutesFinance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InstitutAll">
+        <PropertyRef Name="CERT" />
+      </Principal>
+      <Dependent Role="InstitutesFinance">
+        <PropertyRef Name="FK_CERT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InstitutesInsurs_InstitutAll">
+    <End Role="InstitutAll" Type="Self.InstitutAll" Multiplicity="0..1" />
+    <End Role="InstitutesInsurs" Type="Self.InstitutesInsur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InstitutAll">
+        <PropertyRef Name="CERT" />
+      </Principal>
+      <Dependent Role="InstitutesInsurs">
+        <PropertyRef Name="FK_CERT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BanksEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CommercialBanks" EntityType="Self.CommercialBank" />
+    <EntitySet Name="CommercialFinances" EntityType="Self.CommercialFinance" />
+    <EntitySet Name="FailedBanks" EntityType="Self.FailedBank" />
+    <EntitySet Name="FailedFinances" EntityType="Self.FailedFinance" />
+    <EntitySet Name="FailedGDPs" EntityType="Self.FailedGDP" />
+    <EntitySet Name="InstitutAlls" EntityType="Self.InstitutAll" />
+    <EntitySet Name="InstitutesFinances" EntityType="Self.InstitutesFinance" />
+    <EntitySet Name="InstitutesInsurs" EntityType="Self.InstitutesInsur" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_CommercialBanks_FailedBanks" Association="Self.FK_CommercialBanks_FailedBanks">
+      <End Role="FailedBanks" EntitySet="FailedBanks" />
+      <End Role="CommercialBanks" EntitySet="CommercialBanks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommercialBanks_FailedFinance" Association="Self.FK_CommercialBanks_FailedFinance">
+      <End Role="FailedFinance" EntitySet="FailedFinances" />
+      <End Role="CommercialBanks" EntitySet="CommercialBanks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommercialBanks_FailedGDP" Association="Self.FK_CommercialBanks_FailedGDP">
+      <End Role="FailedGDP" EntitySet="FailedGDPs" />
+      <End Role="CommercialBanks" EntitySet="CommercialBanks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommercialFinance_CommercialBanks" Association="Self.FK_CommercialFinance_CommercialBanks">
+      <End Role="CommercialBanks" EntitySet="CommercialBanks" />
+      <End Role="CommercialFinance" EntitySet="CommercialFinances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InstitutAll_CommercialBanks" Association="Self.FK_InstitutAll_CommercialBanks">
+      <End Role="CommercialBanks" EntitySet="CommercialBanks" />
+      <End Role="InstitutAll" EntitySet="InstitutAlls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InstitutesFinance_CommercialBanks" Association="Self.FK_InstitutesFinance_CommercialBanks">
+      <End Role="CommercialBanks" EntitySet="CommercialBanks" />
+      <End Role="InstitutesFinance" EntitySet="InstitutesFinances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InstitutesInsurs_CommercialBanks" Association="Self.FK_InstitutesInsurs_CommercialBanks">
+      <End Role="CommercialBanks" EntitySet="CommercialBanks" />
+      <End Role="InstitutesInsurs" EntitySet="InstitutesInsurs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommercialFinance_FailedBanks" Association="Self.FK_CommercialFinance_FailedBanks">
+      <End Role="FailedBanks" EntitySet="FailedBanks" />
+      <End Role="CommercialFinance" EntitySet="CommercialFinances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommercialFinance_FailedFinance" Association="Self.FK_CommercialFinance_FailedFinance">
+      <End Role="FailedFinance" EntitySet="FailedFinances" />
+      <End Role="CommercialFinance" EntitySet="CommercialFinances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommercialFinance_FailedGDP" Association="Self.FK_CommercialFinance_FailedGDP">
+      <End Role="FailedGDP" EntitySet="FailedGDPs" />
+      <End Role="CommercialFinance" EntitySet="CommercialFinances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InstitutAll_CommercialFinance" Association="Self.FK_InstitutAll_CommercialFinance">
+      <End Role="CommercialFinance" EntitySet="CommercialFinances" />
+      <End Role="InstitutAll" EntitySet="InstitutAlls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InstitutesFinance_CommercialFinance" Association="Self.FK_InstitutesFinance_CommercialFinance">
+      <End Role="CommercialFinance" EntitySet="CommercialFinances" />
+      <End Role="InstitutesFinance" EntitySet="InstitutesFinances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InstitutesInsurs_CommercialFinance" Association="Self.FK_InstitutesInsurs_CommercialFinance">
+      <End Role="CommercialFinance" EntitySet="CommercialFinances" />
+      <End Role="InstitutesInsurs" EntitySet="InstitutesInsurs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FailedBanks_InstitutAll" Association="Self.FK_FailedBanks_InstitutAll">
+      <End Role="InstitutAll" EntitySet="InstitutAlls" />
+      <End Role="FailedBanks" EntitySet="FailedBanks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FailedFinance_FailedBanks" Association="Self.FK_FailedFinance_FailedBanks">
+      <End Role="FailedBanks" EntitySet="FailedBanks" />
+      <End Role="FailedFinance" EntitySet="FailedFinances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FailedGDP_FailedBanks" Association="Self.FK_FailedGDP_FailedBanks">
+      <End Role="FailedBanks" EntitySet="FailedBanks" />
+      <End Role="FailedGDP" EntitySet="FailedGDPs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InstitutesFinance_InstitutAll" Association="Self.FK_InstitutesFinance_InstitutAll">
+      <End Role="InstitutAll" EntitySet="InstitutAlls" />
+      <End Role="InstitutesFinance" EntitySet="InstitutesFinances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InstitutesInsurs_InstitutAll" Association="Self.FK_InstitutesInsurs_InstitutAll">
+      <End Role="InstitutAll" EntitySet="InstitutAlls" />
+      <End Role="InstitutesInsurs" EntitySet="InstitutesInsurs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
